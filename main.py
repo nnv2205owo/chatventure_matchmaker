@@ -346,6 +346,9 @@ vect_df = pd.DataFrame(scaler.fit_transform(vect_df), index=vect_df.index, colum
 # Instantiating PCA
 pca = PCA()
 
+# Fitting and Transforming the DF
+df_pca = pca.fit_transform(vect_df)
+
 # Finding the exact number of features that explain at least 99% of the variance in the dataset
 total_explained_variance = pca.explained_variance_ratio_.cumsum()
 n_over_9 = len(total_explained_variance[total_explained_variance >= .88])
