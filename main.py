@@ -1,4 +1,3 @@
-# %%
 from sklearn.decomposition import PCA
 import numpy as np
 import pandas as pd
@@ -19,14 +18,12 @@ from PIL import Image
 pd.set_option('display.max_colwidth', 500)
 pd.options.mode.chained_assignment = None  # default='warn'
 
-# %%
 biolist = ['Hayo everyone. Nanikore. Heh'] * 32
 
-# %%
 bio_df = pd.DataFrame(biolist, columns=['Bios'])
 # print(bio_df)
 
-# %%
+
 df = bio_df
 
 # Probability dictionary
@@ -177,11 +174,8 @@ names = ['Movies', 'Religion', 'Music', 'Politics', 'Social Media', 'Sports', 'A
 
 combined = dict(zip(names, categories))
 
-# %% md
-
 # Establishing random values for each category
 
-# %%
 
 # Looping through and assigning random values
 for name, cats in combined.items():
@@ -201,15 +195,11 @@ for name, cats in combined.items():
 
         df[name] = df[name].apply(lambda x: list(set(x[0].tolist())))
 
-# %%
-
 # print(df)
 
-# %% md
 
 # Categorizing
 
-# %%
 
 df['Religion'] = pd.Categorical(df.Religion, ordered=True,
                                 categories=['Catholic',
@@ -230,8 +220,6 @@ df['Politics'] = pd.Categorical(df.Politics, ordered=True,
                                             'Moderate',
                                             'Conservative'])
 
-# %%
-
 # Exporting the DF
 # print(df)
 
@@ -242,26 +230,20 @@ profiles_df = df
 # with open("refined_profiles.pkl", 'wb') as fp:
 #     pickle.dump(df, fp)
 
-# %% md
 
 # Modeling the Refined Data
 # Using Clustering then Classification Model
 
-# %%
 
 # Viewing the DF
 df.head()
 
 
-# %% md
-
 ## Clustering the Refined Data
 
-# %% md
 
 ### Vectorizing
 
-# %%
 
 def string_convert(x):
     """
@@ -278,12 +260,8 @@ for col in df.columns:
     df[col] = df[col].apply(string_convert)
 
 
-# %%
-
 # print(df)
 
-
-# %%
 
 def vectorization(df, columns):
     """
@@ -320,28 +298,20 @@ def vectorization(df, columns):
 
         return vectorization(new_df, new_df.columns)
 
-    # %%
-
 
 # Creating the vectorized DF
 vect_df = vectorization(df, df.columns)
-
-# %%
 
 # Scaling
 scaler = MinMaxScaler()
 
 vect_df = pd.DataFrame(scaler.fit_transform(vect_df), index=vect_df.index, columns=vect_df.columns)
 
-# %%
-
 # print(vect_df)
 
-# %% md
 
 ### PCA
 
-# %%
 
 # Instantiating PCA
 pca = PCA()
@@ -365,12 +335,10 @@ df_pca = pca.fit_transform(vect_df)
 # Seeing the variance ratio that still remains after the dataset has been reduced
 # print(pca.explained_variance_ratio_.cumsum()[-1])
 
-# %% md
 
 ### Performing Hierarchical Agglomerative Clustering
 # - First finding the optimum number of clusters
 
-# %%
 
 # Setting the amount of clusters to test out
 cluster_cnt = [i for i in range(2, 11, 1)]
@@ -402,11 +370,8 @@ for i in tqdm(cluster_cnt):
     db_scores.append(davies_bouldin_score(eval_df, cluster_assignments))
 
 
-# %% md
-
 ### Helper Function to Evaluate the Clusters
 
-# %%
 
 def cluster_eval(y, x):
     """
@@ -429,11 +394,8 @@ def cluster_eval(y, x):
     plt.show()
 
 
-# %% md
-
 ### Evaluation of Clusters
 
-# %%
 
 # print("The Calinski-Harabasz Score (find max score):")
 # cluster_eval(ch_scores, cluster_cnt)
@@ -444,12 +406,10 @@ def cluster_eval(y, x):
 # print("\nThe Davies-Bouldin Score (find minimum score):")
 # cluster_eval(db_scores, cluster_cnt)
 
-# %% md
 
 ### Running HAC
 # Again but with the optimum cluster count
 
-# %%
 
 # Instantiating HAC based on the optimum number of clusters found
 hac = AgglomerativeClustering(n_clusters=3, linkage='complete')
@@ -465,11 +425,8 @@ df['Cluster #'] = cluster_assignments
 
 vect_df['Cluster #'] = cluster_assignments
 
-# %% md
-
 #### Exporting the Clustered DF and Vectorized DF
 
-# %%
 
 # with open("refined_cluster.pkl", 'wb') as fp:
 #     pickle.dump(df, fp)
@@ -479,15 +436,12 @@ cluster_df = df
 # with open("vectorized_refined.pkl", 'wb') as fp:
 #     pickle.dump(vect_df, fp)
 
-# %% md
 
 ## Classification of the New Profile
 
-# %% md
 
 ### Importing the Different Classification Models
 
-# %%
 
 # Assigning the split variables
 X = vect_df.drop(["Cluster #"], axis=1)
@@ -495,8 +449,6 @@ y = vect_df['Cluster #']
 
 # Train, test, split
 X_train, X_test, y_train, y_test = train_test_split(X, y)
-
-# %% md
 
 ### Finding the Best Model
 # - Dummy(Baseline Model)
@@ -506,7 +458,6 @@ X_train, X_test, y_train, y_test = train_test_split(X, y)
 # - Logistic Regression
 # - Adaboost
 
-# %%
 
 # NaiveBayes
 nb = ComplementNB()
@@ -520,17 +471,13 @@ names = ['NaiveBayes']
 # Zipping the lists
 classifiers = dict(zip(names, models))
 
-# %%
-
 # Visualization of the different cluster counts
 # vect_df['Cluster #'].value_counts().plot(kind='pie', title='Count of Class Distribution')
 
-# %% md
 
 # Since we are dealing with an imbalanced dataset _(because each cluster is not guaranteed to have the same amount of
 # profiles)_, we will resort to using the __Macro Avg__ and __F1 Score__ for evaluating the performances of each model.
 
-# %%
 
 # Dictionary containing the model names and their scores
 models_f1 = {}
@@ -551,21 +498,15 @@ for name, model in tqdm(classifiers.items()):
 
     # print(f1)
 
-# %% md
-
 # Fitting the Best Model to our Dataset
 # _(Optional: Tune the model with GridSearch)_
 
-# %%
 
 # Fitting the model
 nb.fit(X, y)
 
-# %% md
-
 # Saving the Classification Model for future use
 
-# %%
 
 # dump(nb, "refined_model.joblib")
 
@@ -574,8 +515,6 @@ model = nb
 
 # print(vect_df)
 
-
-# %%
 
 def new_vectorization(df, columns, input_df):
     """
@@ -689,6 +628,9 @@ def example_bios():
         st.text(profiles_df['Bios'].loc[i])
     st.write("-" * 100)
 
+
+query_params = st.experimental_get_query_params()
+print(query_params)
 
 # Lists of Names and the list of the lists
 categories = [movies, religion, music, politics, social, sports, age]
