@@ -309,6 +309,11 @@ if out_button:
     room_data = room_doc.to_dict()
     sender_data = sender_doc.to_dict()
 
+    if senderMaskId not in room_data['authenticated_users']:
+        print(u'Bạn chưa được cấp quyền để tham gia phòng này')
+        st.error('Bạn chưa được cấp quyền để tham gia phòng này')
+        exit(1)
+
     if senderMaskId not in id_link[roomId]:
         st.error('Bạn chưa tham gia phòng này')
     else:
@@ -363,6 +368,11 @@ if button:
 
     room_data = room_doc.to_dict()
     sender_data = sender_doc.to_dict()
+
+    if senderMaskId not in room_data['authenticated_users']:
+        print(u'Bạn chưa được cấp quyền để tham gia phòng này')
+        st.error('Bạn chưa được cấp quyền để tham gia phòng này')
+        exit(1)
 
     if 'crr_meeting_room' in sender_data and sender_data['crr_meeting_room'] is not None:
         if sender_data['crr_meeting_room'] == roomId:
