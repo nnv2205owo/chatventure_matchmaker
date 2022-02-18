@@ -235,7 +235,7 @@ st.image(image, use_column_width=True)
 
 # Instantiating a new DF row to classify later
 # profiles_df.drop(profiles_df.columns[len(profiles_df.columns) - 1], axis=1, inplace=True)
-if roomId not in id_link:
+if roomId not in id_link or len(id_link[roomId]) == 0:
     # print('Setup room')
     id_link[roomId] = {}
     sender_id_link[roomId] = {}
@@ -246,6 +246,7 @@ elif senderMaskId in id_link[roomId]:
     # print(senderIdLink)
     new_profile = pd.DataFrame(columns=['Bios'] + names, index=[senderIdLink])
 else:
+    print(id_link[roomId])
     new_profile = pd.DataFrame(columns=['Bios'] + names, index=[id_link[roomId][list(id_link[roomId])[-1]] + 1])
 
 # print("Profiles df : ", profiles_df)
@@ -329,6 +330,15 @@ if out_button:
         })
 
         st.success('Bạn đã thoát phòng thành công')
+
+    with open('meeting_info.pkl', 'wb') as meeting_info_file:
+        pickle.dump(meeting_info, meeting_info_file)
+
+    with open('id_link.pkl', 'wb') as id_link_file:
+        pickle.dump(id_link, id_link_file)
+
+    with open('sender_id_link.pkl', 'wb') as sender_id_link_file:
+        pickle.dump(sender_id_link, sender_id_link_file)
 
 if button:
     sender_mask_ref = db.collection('global_vars').document('masks').collection('users').document(senderMaskId)
@@ -908,3 +918,4 @@ if button:
     print(meeting_info)
     # print(meeting_info[roomId].drop(senderId))
     print(new_profile)
+    print(id_link)
