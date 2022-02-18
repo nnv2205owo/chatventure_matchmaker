@@ -872,7 +872,7 @@ if button:
                     remain_list.append(sender_id_link[roomId][i])
 
             random.shuffle(remain_list)
-            r = requests.post("http://localhost:3000/meeting_rooms",
+            r = requests.post("https://lqdchatventure-web.herokuapp.com/meeting_rooms",
                               data={
                                   'action': 'start',
                                   'data': json.dumps({'action': 'start', 'room_id': roomId, 'remain_list': remain_list,
