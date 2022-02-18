@@ -192,7 +192,7 @@ import pickle
 
 # Use a service account
 if not firebase_admin._apps:
-    cred = credentials.Certificate('lqdchatventure-firebase-adminsdk-p777u-b92ccc8457.json')
+    cred = credentials.Certificate(st.secrets['FIREBASE_CERT'])
     firebase_admin.initialize_app(cred)
 
 db = firestore.client()
