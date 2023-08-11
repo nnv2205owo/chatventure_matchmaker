@@ -1,37 +1,132 @@
-# AI Matchmaker
-Utilizing AI and Machine Learning to match dating profiles with one another
+<a name="readme-top"></a>
 
-### [My Medium Page](https://marco-santos.medium.com/membership)
+<!-- PROJECT SHIELDS -->
 
-![](AI-Dating-App/robot_matchmaker.jpg)
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
 
-## Medium Articles Detailing the Process
+<br />
+<div align="center">
 
-#### Original Concept and Idea
-- [Applying Machine Learning to Find Love](https://medium.com/datadriveninvestor/applying-machine-learning-to-find-love-3558dafcc4a1?source=friends_link&sk=a1caa632bdff516a6e132477543f271c)
+<h3 align="center">chatventure_matchmaker</h3>
 
-#### Data Gathering and Generation
-- [Generating Fake Dating Profiles for Data Science](https://towardsdatascience.com/generating-fake-dating-profiles-for-data-science-cd3b929972bc?source=friends_link&sk=7b2423cf197b7e54d4a13e47a2101b10)
+<p align="center">
+    Apply machine learning methods to automatically match people based on their preferences
+    <br />
+    <br />
+    <a href="https://github.com/notabota/chatventure_matchmaker">View Demo</a>
+    ·
+    <a href="https://github.com/notabota/chatventure_matchmaker/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/notabota/chatventure_matchmaker/issues">Request Feature</a>
+  </p>
+</div>
 
-#### NLP Data Exploration and Analysis
-- [Using NLP Machine Learning on Dating Profiles](https://medium.com/swlh/using-nlp-machine-learning-on-dating-profiles-1d9328484e85?source=friends_link&sk=9c099e59191f6b862812ac8828a9970e)
+<!-- TABLE OF CONTENTS -->
 
-#### Final Clustering Algorithm and Development
-- [Dating Algorithms using Machine Learning and AI](https://towardsdatascience.com/dating-algorithms-using-machine-learning-and-ai-814b68ecd75e?source=friends_link&sk=867b08aba0b761f510205c6ab13b012c)
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
 
-#### Sorting the Clustered Groups
-- [Sorting Dating Profiles with Machine Learning and Python](https://medium.com/@marcosan93/sorting-dating-profiles-with-machine-learning-and-python-51db7a074a25?source=friends_link&sk=635a049cc1c45c4a9cefa4e68be44b33)
+<!-- ABOUT THE PROJECT -->
 
-#### Adding New Data to the Clusters
-- [How a Dating App Handles New Profiles (Part 1)](https://medium.com/@marcosan93/how-a-dating-app-handles-new-profiles-part-1-d283ab2457c?source=friends_link&sk=f5247dae53da93fbcc642e78fa1ddfd9)
+## About The Project
 
-- [How a Dating App Handles New Profiles (Part 2)](https://medium.com/@marcosan93/how-a-dating-app-handles-new-profiles-part-2-fca4f13b5205?source=friends_link&sk=6900fbd85340231ecac7f9ba571454ec)
+_This application is associated with Chatventure_
 
-#### Using Streamlit to Display the App
-- [How to Use Streamlit to Create Web Applications](https://medium.com/@marcosan93/how-to-use-streamlit-to-create-web-applications-218af44064f5?source=friends_link&sk=18229bf1aa3c5d8eba4d9a479c6c5cd4)
+I know, I know. The only type of relationship that should be represented programmatically is that of relational databases. This is just based on statistical and chances, so this is just an option. We will require users to fill out some of the details about themselves and their interests in their partners, and our pretrained model with look for someone who is also in the matchmaking queue with highest confidence and connect them together. Consider this randomness with extra step.
 
-#### Deploying the Streamlit App with AWS
-- [Creating a Website to Host your Python Web Application](https://medium.com/@marcosan93/creating-a-website-to-host-your-python-web-application-f06f694a87e8?source=friends_link&sk=029c7240dc72d462bcb1e3b14e8f7849)
+<p style="text-align: right;"><a href="#readme-top">back to top</a></p>
 
-#### Using Class to Add/Format a New Profile
-- [Enhance your Python Project Code with Classes](https://towardsdatascience.com/enhance-your-python-project-code-with-classes-5a19d0e9f841?source=friends_link&sk=f16512c9abfabf4b73e993952bc3250b)
+### Built With
+
+[![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white)](https://pytorch.org/)
+[![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
+[![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/en)
+[![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/en/2.3.x/)
+[![Firebase](https://img.shields.io/badge/Firebase-039BE5?style=for-the-badge&logo=Firebase&logoColor=white)](https://firebase.google.com/)
+
+<p style="text-align: right;"><a href="#readme-top">back to top</a></p>
+
+<!-- CONTRIBUTING -->
+
+## Contributing
+
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any
+contributions you make are **greatly appreciated**.
+
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also
+simply open an issue with the tag "enhancement".
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+<p style="text-align: right;"><a href="#readme-top">back to top</a></p>
+
+## Contact
+
+Nguyễn Nguyên Vũ
+
+* [![Gmail][gmail]]() - **nnv2205owo@gmail.com**
+* [![Facebook][facebook]](https://www.facebook.com/nnv2205owo/) - **facebook.com/nnv2205owo**
+* [![LinkedIn][linkedin]](https://www.linkedin.com/in/nnv2205owo/) - **linkedin.com/in/nnv2205owo**
+* [![Upwork][upwork]](https://www.upwork.com/freelancers/~012078434f80806fe1) - **upwork.com/freelancers/~
+  012078434f80806fe1**
+
+Project Link: [https://github.com/notabota/chatventure_matchmaker](https://github.com/notabota/chatventure_matchmaker)
+
+<p style="text-align: right;"><a href="#readme-top">back to top</a></p>
+
+<!-- MARKDOWN LINKS & IMAGES -->
+
+[Firebase]: https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase
+
+[Firebase-url]: https://firebase.google.com/
+
+[contributors-shield]: https://img.shields.io/github/contributors/notabota/chatventure_matchmaker.svg?style=for-the-badge
+
+[contributors-url]: https://github.com/notabota/chatventure_matchmaker/graphs/contributors
+
+[forks-shield]: https://img.shields.io/github/forks/notabota/chatventure_matchmaker.svg?style=for-the-badge
+
+[forks-url]: https://github.com/notabota/chatventure_matchmaker/network/members
+
+[stars-shield]: https://img.shields.io/github/stars/notabota/chatventure_matchmaker.svg?style=for-the-badge
+
+[stars-url]: https://github.com/notabota/chatventure_matchmaker/stargazers
+
+[issues-shield]: https://img.shields.io/github/issues/notabota/chatventure_matchmaker.svg?style=for-the-badge
+
+[issues-url]: https://github.com/notabota/chatventure_matchmaker/issues
+
+[license-shield]: https://img.shields.io/github/license/notabota/chatventure_matchmaker.svg?style=for-the-badge
+
+[license-url]: https://github.com/notabota/chatventure_matchmaker/blob/master/LICENSE.txt
+
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+
+[linkedin-url]: https://linkedin.com/in/nnv2205owo
+
+[facebook]: https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white
+
+[gmail]: https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white
+
+[linkedin]: https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white
+
+[upwork]: https://img.shields.io/badge/UpWork-6FDA44?style=for-the-badge&logo=Upwork&logoColor=white
